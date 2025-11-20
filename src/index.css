@@ -283,12 +283,12 @@ input[type="text"]:focus {
 
 #primary > .menu {
     width: 40%;
-    justify-content: right;
+    justify-content: space-between;
+    gap: 0.8rem;
 }
 
 #primary > .menu > li {
-    min-width: 22%;
-    margin-left: 0.8rem;
+    flex: 1;
     text-align: center;
 }
 
