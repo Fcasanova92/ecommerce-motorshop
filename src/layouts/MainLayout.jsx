@@ -8,6 +8,7 @@ export const MainLayout = ({ children }) => {
       <main className="flex-grow-1 container-fluid py-4">
         {children}
       </main>
+      <hr className="my-4" />
       <Footer />
     </div>
   );

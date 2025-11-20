@@ -1,14 +1,14 @@
 import React from "react";
 import {  useLocation } from "react-router";
 import moto from "@/assets/img/products/motorcycle.png";
-import { getRandomMillionDecimalFormatted } from "@/components/helpers/getPrice";
 import { MainLayout } from "@/layouts/MainLayout";
 import { useCartContext } from "@/context/CartContext";
 
 export const Product = () => {
   const location = useLocation();
   const product = location.state?.product;
-   const {agregarProducto} = useCartContext();
+  console.log(product)
+  const {agregarProducto} = useCartContext();
 
   if (!product) {
     return <p>Producto no encontrado.</p>;
@@ -16,30 +16,36 @@ export const Product = () => {
 
   return (
     <MainLayout>
-      <div className="product-viewer fx-deep-shadow-dinamyc fx-move-up">
-        <div className="product-image">
-          <img
-            src={product.image || moto}
-            alt={product.model}
-            draggable="false"
-          />
-        </div>
-        <div className="product-details">
-          <h2 className="title-c">{product.make} {product.model}</h2>
-          <ul className="features-list">
-            <li><strong>Modelo:</strong> {product.model}</li>
-            <li><strong>Año:</strong> {product.year}</li>
-            <li><strong>Refrigeración:</strong> {product.cooling}</li>
-            <li><strong>Descripción:</strong> {product.description}</li>
-            <li><strong>Precio:</strong> {getRandomMillionDecimalFormatted()}</li>
-          </ul>
-          <button
-            className="add-to-cart"
-            onClick={() => agregarProducto(product)}
-          >
-            🛒 Agregar al carrito
-          </button>
-        </div>
+      <div className="container-fluid">
+        <section className="mb-5">
+          <div className="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+            <h2 className="title-b mb-0">Detalle del Producto</h2>
+          </div>
+          
+          <div className="product-viewer fx-deep-shadow-dinamyc fx-move-up">
+            <div className="product-image">
+              <img
+                src={product.image || moto}
+                alt={product.nombre}
+                draggable="false"
+              />
+            </div>
+            <div className="product-details">
+              <h2 className="title-c">{product.nombre}</h2>
+              <ul className="features-list">
+                <li><strong>Modelo:</strong> {product.nombre}</li>
+                <li><strong>Descripción:</strong> {product.descripcion}</li>
+                <li><strong>Precio:</strong> {product.precio}</li>
+              </ul>
+              <button
+                className="add-to-cart"
+                onClick={() => agregarProducto(product)}
+              >
+                🛒 Agregar al carrito
+              </button>
+            </div>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );
