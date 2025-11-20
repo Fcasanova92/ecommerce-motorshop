@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import moto from "@/assets/img/products/motorcycle.png";
-import { getRandomMillionDecimalFormatted } from "./helpers/getPrice";
 import { useNavigate } from "react-router";
 import { PathConfig } from "@/utils/pathConfig";
 import { useCartContext } from "@/context/CartContext";
@@ -142,7 +141,7 @@ export const Card = ({data}) => {
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    agregarProducto(data);
+    agregarProducto({...data, id: data.id});
   };
 
   return (
@@ -156,16 +155,16 @@ export const Card = ({data}) => {
 
       <SupportingText>
         <Overline>MODELO</Overline>
-        <TitleC>{data.make}</TitleC>
+        <TitleC>{data.modelo}</TitleC>
         <Caption>
-          {data.model} | {data.cooling} | {data.year}
+          {data.nombre}
         </Caption>
-        <BodyB>{data.description}</BodyB>
+        <BodyB>{data.descripcion}</BodyB>
 
         <Footer>
           <Price>
             <PriceTitle>Precio: </PriceTitle>
-            <PriceAmount>{getRandomMillionDecimalFormatted()}</PriceAmount>
+            <PriceAmount>{data.precio}</PriceAmount>
           </Price>
 
           <Actions>

@@ -7,9 +7,14 @@ export const CartProvider = ({ children }) => {
   const [productInCart, setProductInCart] = useState([]);
 
   const agregarProducto = useCallback((data) => {
+    const isExisting = productInCart.some(product => product.id === data.id);
+    if(isExisting){
+      toast.error("El producto ya está en el carrito");
+      return;
+    }
     setProductInCart(prev => [...prev, data])
     toast.success("Producto agregado al carrito");
-  }, []);
+  }, [productInCart]);
   
   const eliminarProducto = useCallback((data) => {
     setProductInCart(prev => 

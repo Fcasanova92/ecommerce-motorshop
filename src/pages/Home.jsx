@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet";
 import { MainLayout } from "@/layouts/MainLayout";
-import { useObtenerProductos } from "@/hooks/useObtenerProductos";
 import { Card } from "@/components/Card";
 import { CardSkeleton } from "@/components/skeleton/producto/CardSkeleton";
 import { useState, useMemo, useEffect } from "react";
@@ -9,12 +8,13 @@ import { Sucursal } from "@/components/Suscursal";
 import { sucursales } from "@/components/constant/sucursales";
 import { SearchBar } from "@/components/SearchBar";
 import { Pagination } from "@/components/Pagination";
+import { useProductContext } from "@/context/ProductContext";
 
 export const Home = () => {
-  const {productos, loading} = useObtenerProductos();
+  const {products, loading} = useProductContext();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 9;
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
@@ -24,18 +24,20 @@ export const Home = () => {
   });
   const {sendMessage, loading: loadingSendMail, message} = useServiceEmail();
 
+  console.log(products)
+
   const filteredProducts = useMemo(() => {
     if (!searchTerm.trim()) {
-      return productos;
+      return products;
     }
     
     const searchLower = searchTerm.toLowerCase();
-    return productos.filter(product =>
+    return products.filter(product =>
       JSON.stringify(product)
       .toLowerCase()
       .includes(searchLower)
     );
-  }, [productos, searchTerm]);
+  }, [products, searchTerm]);
 
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;

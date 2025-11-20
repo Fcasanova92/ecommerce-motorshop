@@ -6,6 +6,8 @@ import { MainLayout } from "@/layouts/MainLayout"
 export const Cart = () => {
     const {productInCart} = useCartContext();
 
+    console.log(productInCart);
+
     return (
         <MainLayout>
             <Helmet>

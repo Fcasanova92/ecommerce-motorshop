@@ -1,4 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
+import { config } from "@/config/config";
 import { createContext, useContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
@@ -16,8 +17,7 @@ export const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const MOCKAPI_URL = "https://674053d9d0b59228b7ef1757.mockapi.io/product";
+  const MOCKAPI_URL = config.apiMockUrl;
 
   // GET - Obtener todos los productos
   const fetchProducts = async () => {

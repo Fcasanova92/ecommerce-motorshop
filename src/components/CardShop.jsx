@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import moto from "@/assets/img/products/motorcycle.png";
-import { getRandomMillionDecimalFormatted } from "./helpers/getPrice";
 import { useNavigate } from "react-router";
 import { PathConfig } from "@/utils/pathConfig";
 import { useCartContext } from "@/context/CartContext";
-import { FaTrashAlt, FaEye } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 const StyledCard = styled.article`
   overflow: hidden;
@@ -14,6 +13,7 @@ const StyledCard = styled.article`
   box-shadow: 0px 2px 8px -1px #4a4a4a;
   transition: box-shadow ease-in-out 300ms, transform ease-in-out 300ms;
   max-width: 280px;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0px 8px 16px -2px #6a6a6a;
@@ -86,7 +86,7 @@ const Footer = styled.div`
 const Price = styled.div`
   display: flex;
   gap: 0.2rem;
-  align-items: flex-end;
+  align-items: center;
 `;
 
 const PriceTitle = styled.h4`
@@ -94,12 +94,13 @@ const PriceTitle = styled.h4`
   font-weight: 700;
   font-size: 0.7rem;
   letter-spacing: 0.4px;
+  margin: 0;
 `;
 
 const PriceAmount = styled.span`
   color: #7CB342;
   font-weight: 300;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
 `;
 
 const Actions = styled.ul`
@@ -107,19 +108,6 @@ const Actions = styled.ul`
   gap: 0.15rem;
   justify-content: space-between;
   list-style: none;
-`;
-
-const SeeIcon = styled.span`
-  color: #8d8d8d;
-  font-size: 0.9rem;
-  letter-spacing: 0.3px;
-  align-self: center;
-  cursor: pointer;
-  transition: color 600ms;
-
-  &:hover {
-    color: #3044b5;
-  }
 `;
 
 const RemoveButton = styled.button`
@@ -147,7 +135,7 @@ export const CardShop = ({data}) => {
   const {eliminarProducto} = useCartContext();
 
   return (
-    <StyledCard>
+    <StyledCard onClick={() => navigate(PathConfig.Product, {state: {product:data}})}>
       <Media>
         <CardThumbnail
           src={moto}
@@ -157,25 +145,24 @@ export const CardShop = ({data}) => {
 
       <SupportingText>
         <Overline>MODELO</Overline>
-        <TitleC>{data.make}</TitleC>
+        <TitleC>{data.modelo}</TitleC>
         <Caption>
-          {data.model} | {data.cooling} | {data.year}
+          {data.nombre}
         </Caption>
-        <BodyB>{data.description}</BodyB>
+        <BodyB>{data.descripcion}</BodyB>
 
         <Footer>
           <Price>
             <PriceTitle>Precio: </PriceTitle>
-            <PriceAmount>{getRandomMillionDecimalFormatted()}</PriceAmount>
+            <PriceAmount>{data.precio}</PriceAmount>
           </Price>
 
           <Actions>
-            <SeeIcon onClick={() => navigate(PathConfig.Product, {state: {product:data}})}>
-              <FaEye />
-            </SeeIcon>
-            
             <RemoveButton
-              onClick={() => eliminarProducto(data)}
+              onClick={(e) => {
+                e.stopPropagation();
+                eliminarProducto(data);
+              }}
             >
               <FaTrashAlt /> Eliminar
             </RemoveButton>
