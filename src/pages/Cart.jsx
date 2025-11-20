@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { CardShop } from "@/components/CardShop"
 import { useCartContext } from "@/context/CartContext";
 import { MainLayout } from "@/layouts/MainLayout"
@@ -7,6 +8,11 @@ export const Cart = () => {
 
     return (
         <MainLayout>
+            <Helmet>
+                <title>Carrito de Compras - MOTORSHOP</title>
+                <meta name="description" content="Revisa y gestiona los productos en tu carrito de compras en MOTORSHOP." />
+                <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
             <div className="container-fluid">
                 <section id="products" className="mb-5">
                     <div className="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">

@@ -5,14 +5,14 @@ import { LoginHeader } from "./components/LoginHeader";
 import { headerItems } from "./constant/headerItem";
 import "./Header.css";
 import { Banner } from "@/components/header/components/Banner";
-import { useAuth } from "@/hooks/useAuth";
 import { User } from "./components/User";
 import { CartHeader } from "./components/Cart";
 import { ScrollToHash } from "./components/ScrollToHash";
 import { FaMotorcycle } from "react-icons/fa";
+import { useAuthContext } from "@/context/AuthContext";
 
 export const Header = () => {
-  const {isOnline}  = useAuth();
+  const {isOnline}  = useAuthContext();
   return (
     <header>
       <nav id="primary">

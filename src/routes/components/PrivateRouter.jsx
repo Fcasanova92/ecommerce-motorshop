@@ -1,11 +1,11 @@
 // PrivateRouter.jsx
-import { useAuth } from "@/hooks/useAuth";
 import { Navigate } from "react-router";
 import { Spinner } from "@/components/Spinner";
 import { PathConfig } from "@/utils/pathConfig";
+import { useAuthContext } from "@/context/AuthContext";
 
 export const PrivateRouter = ({ children }) => {
-  const { loading, isOnline } = useAuth();
+  const { loading, isOnline } = useAuthContext();
 
   if (loading) return <Spinner />; // mientras carga
 

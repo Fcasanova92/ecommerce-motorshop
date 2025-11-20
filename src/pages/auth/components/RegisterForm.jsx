@@ -4,8 +4,8 @@ import { togglePasswordVisibility } from "../helpers/passwordVisuality";
 import { validateInput } from "../helpers/validateInput";
 import { PathConfig } from "@/utils/pathConfig";
 import { Link, useNavigate } from "react-router";
-import { useAuth } from "@/hooks/useAuth";
 import '../styles/authStyle.css';
+import { useAuthContext } from "@/context/AuthContext";
 
 export const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +20,7 @@ export const RegisterForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { register, message, setMessage } = useAuth();
+  const { register, message, setMessage } = useAuthContext();
 
   const handleChange = (e) => {
     const { id, value, type, checked } = e.target;

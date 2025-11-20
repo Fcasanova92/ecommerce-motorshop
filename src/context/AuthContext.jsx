@@ -1,23 +1,26 @@
-// useAuth.js
-import { useState, useEffect } from "react";
-import { useUsers } from "./useUser";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { PathConfig } from "@/utils/pathConfig";
 
-export const useAuth = () => {
-  const { users, setUsers } = useUsers();
-  const navigate = useNavigate();
+const AuthContext = createContext(null);
 
+export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true); // <-- nuevo estado
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const isOnline = currentUser ? currentUser[0]?.online : false;
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("users"));
     if (storedUser) setCurrentUser(storedUser);
-    setLoading(false); // terminamos de cargar
+    
+    const storedUsers = JSON.parse(localStorage.getItem("allUsers"));
+    if (storedUsers) setUsers(storedUsers);
+    
+    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -28,7 +31,12 @@ export const useAuth = () => {
     }
   }, [currentUser]);
 
-  // login, logout, register igual que antes
+  useEffect(() => {
+    if (users.length > 0) {
+      localStorage.setItem("allUsers", JSON.stringify(users));
+    }
+  }, [users]);
+
   const login = (email, password) => {
     const userIndex = users.findIndex(
       (u) => u.email === email && u.password === password
@@ -52,6 +60,7 @@ export const useAuth = () => {
       u.email === currentUser[0].email ? { ...u, online: false } : u
     );
     setUsers(updatedUsers);
+    setCurrentUser(null);
     setMessage("Has cerrado sesión");
     navigate(PathConfig.Login);
   };
@@ -84,5 +93,32 @@ export const useAuth = () => {
     return true;
   };
 
-  return { login, logout, register, message, setMessage, currentUser, isOnline, loading };
+  return (
+    <AuthContext.Provider 
+      value={{ 
+        login, 
+        logout, 
+        register, 
+        message, 
+        setMessage, 
+        currentUser, 
+        isOnline, 
+        loading,
+        users,
+        setUsers
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+// 3️⃣ Hook para consumir el contexto
+// eslint-disable-next-line react-refresh/only-export-components
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuthContext debe ser usado dentro de AuthProvider");
+  }
+  return context;
 };

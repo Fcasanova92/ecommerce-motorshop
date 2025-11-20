@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { MainLayout } from "@/layouts/MainLayout";
 import { useObtenerProductos } from "@/hooks/useObtenerProductos";
 import { Card } from "@/components/Card";
@@ -31,6 +32,15 @@ export const Home = () => {
   
   return (
     <MainLayout>
+      <Helmet>
+        <title>MOTORSHOP - Tienda de Motocicletas y Repuestos</title>
+        <meta name="description" content="Encuentra las mejores motocicletas, repuestos y accesorios en MOTORSHOP. Amplio catálogo de productos para tu moto." />
+        <meta name="keywords" content="motocicletas, motos, repuestos, accesorios, MOTORSHOP" />
+        <meta property="og:title" content="MOTORSHOP - Tienda de Motocicletas y Repuestos" />
+        <meta property="og:description" content="Encuentra las mejores motocicletas, repuestos y accesorios en MOTORSHOP." />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://motorshop.com" />
+      </Helmet>
       <div className="container-fluid">
         <section id="products" className="mb-5">
           <div className="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
