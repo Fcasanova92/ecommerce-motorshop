@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
 import { ListItem } from "@/components/ListItem";
-import { Icon } from "@/components/Icon";
 import { useAppContext } from "@/context/AppContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 export const CartHeader = () => {
   const { productInCart } = useAppContext();
@@ -14,7 +14,7 @@ export const CartHeader = () => {
         to="/cart"
         style={{ display: "flex", alignItems: "center", gap: "0.3rem" }}
       >
-        <Icon className="fa-solid fa-cart-shopping" />
+        <FaShoppingCart />
         <span>Carrito</span>
 
         {/* Badge que indica si hay productos */}

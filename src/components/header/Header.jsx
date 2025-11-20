@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import { Icon } from "../Icon";
 import { List } from "../List";
 import { ListItem } from "../ListItem";
 import { LoginHeader } from "./components/LoginHeader";
@@ -10,13 +9,14 @@ import { useAuth } from "@/hooks/useAuth";
 import { User } from "./components/User";
 import { CartHeader } from "./components/Cart";
 import { ScrollToHash } from "./components/ScrollToHash";
+import { FaMotorcycle } from "react-icons/fa";
 
 export const Header = () => {
   const {isOnline}  = useAuth();
   return (
     <header>
       <nav id="primary">
-        <Icon name = {"fa-solid fa-motorcycle fa-tw"} />
+        <FaMotorcycle style={{ color: '#fff', fontSize: '1.6rem', letterSpacing: '16px' }} />
         <ScrollToHash />
         <List type = {"ul"} className = {"menu"}>
           {
