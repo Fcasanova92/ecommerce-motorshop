@@ -23,7 +23,6 @@ ol, ul, li {
     list-style: none;
 }
 
-/* Nota: Los componentes List y ListItem ahora usan styled-components */
 
 fieldset, input, button {
     border: none;
@@ -42,12 +41,6 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Títulos movidos a styled-components */
-
-/* Estilos de overline, caption, body-a, body-b, body-c movidos a styled-components */
-
-/* Enlaces, Inputs y Botones */
-
 .link-a, .link-b, .with-check-icon {
     color: #6e6e6e;
     font-size: 1rem;
@@ -61,10 +54,6 @@ html {
     font-weight: 600;
     letter-spacing: 0.4px;
 }
-
-/* Estilos de like y see movidos a styled-components */
-
-/* Estilos de price movidos a styled-components */
 
 input, label, .trigger-a, .trigger-b {
     color: #2e2e2e;
@@ -92,7 +81,6 @@ input, label {
 
 /* <<------------------------------------- Enlaces, Inputs y Botones ------------------------------------->> */
 
-/* Estilos de add-to-cart movidos a styled-components */
 
 fieldset > legend {
     margin-bottom: 0.6rem;
@@ -226,11 +214,8 @@ input[type="text"]:focus {
     width: 92%;
 }
 
-/* Estilos de interacción de like y see movidos a styled-components */
 
 /* <<-------------------------------------------- Formularios -------------------------------------------->> */
-
-/* Formularios ahora manejados por Bootstrap form-control y form-label */
 
 #filter {
     padding: 0.8rem;
@@ -256,17 +241,11 @@ input[type="text"]:focus {
 
 /* <<--------------------------------------------- Imagenes ---------------------------------------------->> */
 
-/* card-thumbnail movido a styled-components */
-
 .banner-thumbnail {
     width: 76%;
     display: block;
     margin: 2rem auto 0 auto;
 }
-
-/* <<-------------------------------------------- Efectos --------------------------------------------->> */
-
-/* Estilos de efectos movidos a styled-components */
 
 /* <<------------------------------------------- Mensajes --------------------------------------------->> */
 
@@ -286,8 +265,6 @@ input[type="text"]:focus {
 }
 
 /* <<-------------------------------------- Cabeceras de Sección -------------------------------------->> */
-
-/* Headlines ahora manejadas por Bootstrap utilities (d-flex, justify-content-between, etc) */
 
 /* <<-------------------------------------------- Navegación --------------------------------------------->> */
 
@@ -354,7 +331,7 @@ input[type="text"]:focus {
 
 /* <<--------------------------------------------- Grillas ----------------------------------------------->> */
 
-/* Grillas ahora manejadas por Bootstrap grid system */
+
 
 .input-grid {
     display: grid;
@@ -365,14 +342,7 @@ input[type="text"]:focus {
     border-bottom: 1px solid #ccc;
 }
 
-/* <<---------------------------------------------- Cartas ----------------------------------------------->> */
-
-/* Estilos de cards movidos a styled-components y Bootstrap */
-
-
 /* <<--------------------------------------------- Productos --------------------------------------------->> */
-
-/* Estilos de productos ahora manejados por Bootstrap grid y utilities */
 
 #products #filter-message {
     text-align: center;
@@ -381,7 +351,7 @@ input[type="text"]:focus {
 
 /* <<------------------------------------------ Sobre Nosotros ------------------------------------------->> */
 
-/* Estilos de about-us ahora manejados por Bootstrap grid y card */
+
 
 #about-us .fa-solid {
     color: #4b4b4b;
@@ -390,7 +360,7 @@ input[type="text"]:focus {
 
 /* <<-------------------------------------------- Sucursales --------------------------------------------->> */
 
-/* Estilos de sucursales ahora manejados por Bootstrap grid y styled-components */
+
 
 
 /* <<--------------------------------------------- Generales --------------------------------------------->> */
@@ -495,8 +465,6 @@ header, section {
 }
 
 
-/* Estilos de skeleton movidos a styled-components */
-
 /* <<------------------------------------------- Media Queries ------------------------------------------->> */
 
 /* Media queries simplificados - Bootstrap maneja la mayoría de casos responsive */
@@ -592,9 +560,6 @@ header, section {
         color: #ccc;
         font-size: 0.8rem;
     }
-
-    /* Nota: Considerar mover estos estilos responsive a styled-components si es necesario */
-    /* Cards responsive manejados por Bootstrap y styled-components */
 
     #login, #register {
         width: 100%;
