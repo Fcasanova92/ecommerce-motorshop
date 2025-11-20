@@ -1,6 +1,6 @@
 import React from "react";
 import {  useLocation } from "react-router";
-import moto from "@/assets/img/products/motorcycle.png"; // placeholder
+import moto from "@/assets/img/products/motorcycle.png";
 import { getRandomMillionDecimalFormatted } from "@/components/helpers/getPrice";
 import { MainLayout } from "@/layouts/MainLayout";
 import { useCartContext } from "@/context/CartContext";

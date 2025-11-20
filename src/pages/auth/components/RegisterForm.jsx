@@ -1,4 +1,3 @@
-// src/components/auth/RegisterForm.jsx
 import React, { useState } from "react";
 import { togglePasswordVisibility } from "../helpers/passwordVisuality";
 import { validateInput } from "../helpers/validateInput";
@@ -38,7 +37,6 @@ export const RegisterForm = () => {
     e.preventDefault();
     setMessage("");
 
-    // Validar todos los campos
     const newErrors = {
       name: validateInput("name", formData.name),
       surname: validateInput("surname", formData.surname),
@@ -48,7 +46,6 @@ export const RegisterForm = () => {
 
     setErrors(newErrors);
 
-    // Si hay errores
     const hasErrors = Object.values(newErrors).some((msg) => msg);
     if (hasErrors) {
       setMessage("Por favor corrige los errores antes de continuar.");

@@ -11,7 +11,6 @@ import { SearchBar } from "@/components/SearchBar";
 import { Pagination } from "@/components/Pagination";
 
 export const Home = () => {
-  // funciones para eventos
   const {productos, loading} = useObtenerProductos();
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +24,6 @@ export const Home = () => {
   });
   const {sendMessage, loading: loadingSendMail, message} = useServiceEmail();
 
-  // Filtrar productos basado en búsqueda
   const filteredProducts = useMemo(() => {
     if (!searchTerm.trim()) {
       return productos;
@@ -39,14 +37,12 @@ export const Home = () => {
     );
   }, [productos, searchTerm]);
 
-  // Productos paginados
   const paginatedProducts = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     return filteredProducts.slice(startIndex, endIndex);
   }, [filteredProducts, currentPage, itemsPerPage]);
 
-  // Resetear página cuando cambia la búsqueda
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm]);
@@ -55,7 +51,6 @@ export const Home = () => {
     setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  // Manejo de submit
   const handleSendMessage = async (event) => {
     event.preventDefault();
     await sendMessage(formData);

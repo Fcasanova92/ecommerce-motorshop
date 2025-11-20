@@ -1,4 +1,3 @@
-// src/components/auth/LoginForm.jsx
 import { Helmet } from "react-helmet";
 import React, { useState } from "react";
 import '../styles/authStyle.css';
@@ -32,7 +31,6 @@ export const LoginForm = () => {
     e.preventDefault();
     setMessage("");
 
-    // Validar todos los campos antes de enviar
     const newErrors = {
       email: validateInput("email", formData.email),
       password: validateInput("password", formData.password),

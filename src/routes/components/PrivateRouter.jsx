@@ -1,4 +1,3 @@
-// PrivateRouter.jsx
 import { Navigate } from "react-router";
 import { Spinner } from "@/components/Spinner";
 import { PathConfig } from "@/utils/pathConfig";

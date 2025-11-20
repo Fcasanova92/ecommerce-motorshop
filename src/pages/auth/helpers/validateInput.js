@@ -1,5 +1,3 @@
-// src/components/auth/helpers/validateInput.js
-
 export const validateInput = (field, value) => {
   if (!value?.trim()) return "Este campo es obligatorio.";
 
