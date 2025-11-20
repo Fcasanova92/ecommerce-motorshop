@@ -4,7 +4,6 @@ import { ListItem } from "../ListItem";
 import { LoginHeader } from "./components/LoginHeader";
 import { headerItems } from "./constant/headerItem";
 import "./Header.css";
-import { Banner } from "@/components/header/components/Banner";
 import { User } from "./components/User";
 import { CartHeader } from "./components/Cart";
 import { ScrollToHash } from "./components/ScrollToHash";
@@ -48,7 +47,6 @@ export const Header = () => {
           }
         </List>
       </nav>
-      <Banner/>
     </header>
   );
 };

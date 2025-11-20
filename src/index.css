@@ -527,14 +527,6 @@ header, section {
     #profile {
         width: 80%;
     }
-
-    footer {
-        flex-wrap: wrap;
-    }
-
-    footer > .data-fiscal {
-        flex: 0 1 100%;
-    }
 }
 
 /* Moviles */
@@ -563,10 +555,6 @@ header, section {
 
     #login, #register {
         width: 100%;
-    }
-
-    footer {
-        flex-direction: column;
     }
 }
 

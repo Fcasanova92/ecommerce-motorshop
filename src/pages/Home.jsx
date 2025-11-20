@@ -9,6 +9,7 @@ import { sucursales } from "@/components/constant/sucursales";
 import { SearchBar } from "@/components/SearchBar";
 import { Pagination } from "@/components/Pagination";
 import { useProductContext } from "@/context/ProductContext";
+import { Banner } from "@/components/header/components/Banner";
 
 export const Home = () => {
   const {products, loading} = useProductContext();
@@ -69,6 +70,7 @@ export const Home = () => {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://motorshop.com" />
       </Helmet>
+      <Banner/>
       
       <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       
@@ -83,7 +85,7 @@ export const Home = () => {
             )}
           </div>
 
-          <div className="row g-4">
+          <div className="row g-2">
             {loading ? (
               <CardSkeleton number={10} />
             ) : filteredProducts.length > 0 ? (
