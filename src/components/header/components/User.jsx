@@ -6,10 +6,8 @@ import { FaSignOutAlt } from "react-icons/fa";
 export const User = () => {
   const {logout} = useAuthContext();
   return (
-    <ListItem className="link-a">
-        <span className="link-a" onClick={logout} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer' }}>
-            Logout <FaSignOutAlt />
-        </span>
-    </ListItem>
+    <span className="text-white" onClick={logout} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', cursor: 'pointer', fontSize: '1rem', fontWeight: 300 }}>
+      Logout <FaSignOutAlt />
+    </span>
   );
 };

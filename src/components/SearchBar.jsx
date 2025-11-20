@@ -3,7 +3,8 @@ import { FaSearch } from "react-icons/fa";
 
 const SearchContainer = styled.div`
   background: #000000;
-  padding: 2rem 0;
+  padding: 1rem 0;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 `;
@@ -16,10 +17,10 @@ const SearchWrapper = styled.div`
 
 const SearchInput = styled.input`
   width: 100%;
-  padding: 1rem 3rem 1rem 1.5rem;
+  padding: 0.7rem 3rem 0.7rem 1.5rem;
   border: none;
   border-radius: 50px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 
@@ -40,15 +41,15 @@ const SearchIcon = styled.div`
   top: 50%;
   transform: translateY(-50%);
   color: #667eea;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   pointer-events: none;
 `;
 
 const SearchTitle = styled.h1`
   color: white;
   text-align: center;
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 `;

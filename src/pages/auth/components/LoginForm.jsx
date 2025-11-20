@@ -20,6 +20,7 @@ export const LoginForm = () => {
   const { login, message, setMessage } = useAuthContext();
 
   const handleChange = (e) => {
+    setMessage("");
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
 

@@ -233,10 +233,10 @@ export const Home = () => {
           <div className="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
             <h2 className="title-b mb-0">Sucursales</h2>
           </div>
-          <div className="row g-4">
+          <div className="row" style={{gap: '10px', marginLeft: '0', marginRight: '0'}}>
             {
               sucursales.map((sucursal) => (
-                <div key={sucursal} className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div key={sucursal} className="col-12 col-sm-6 col-md-4 col-lg-3" style={{paddingLeft: '0', paddingRight: '0'}}>
                   <Sucursal sucursal={sucursal}/>
                 </div>
               ))

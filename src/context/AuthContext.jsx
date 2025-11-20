@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
     );
     setUsers(updatedUsers);
     setCurrentUser(null);
-    setMessage("Has cerrado sesión");
+    setMessage("")
     navigate(PathConfig.Login);
   };
 

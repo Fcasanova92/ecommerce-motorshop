@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { togglePasswordVisibility } from "../helpers/passwordVisuality";
 import { validateInput } from "../helpers/validateInput";
 import { PathConfig } from "@/utils/pathConfig";
@@ -21,7 +21,14 @@ export const RegisterForm = () => {
 
   const { register, message, setMessage } = useAuthContext();
 
+  useEffect(() => {
+      if(formData.condition) {
+        setMessage("");
+      }
+    }, [formData, setMessage]);
+
   const handleChange = (e) => {
+    setMessage("");
     const { id, value, type, checked } = e.target;
     const fieldValue = type === "checkbox" ? checked : value;
 
@@ -46,12 +53,6 @@ export const RegisterForm = () => {
 
     setErrors(newErrors);
 
-    const hasErrors = Object.values(newErrors).some((msg) => msg);
-    if (hasErrors) {
-      setMessage("Por favor corrige los errores antes de continuar.");
-      return;
-    }
-
     if (!formData.condition) {
       setMessage("Debes aceptar los términos y condiciones.");
       return;
@@ -68,8 +69,6 @@ export const RegisterForm = () => {
     if (success) {
       setMessage("Registro exitoso. Ya puedes iniciar sesión.");
       navigate(PathConfig.Home, {state: {email: formData.email}});
-    } else {
-      setMessage("Error: El email ya está registrado.");
     }
   };
 
