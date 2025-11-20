@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router";
 import { ListItem } from "@/components/ListItem";
-import { useAppContext } from "@/context/AppContext";
+import { useCartContext } from "@/context/CartContext";
 import { FaShoppingCart } from "react-icons/fa";
 
 export const CartHeader = () => {
-  const { productInCart } = useAppContext();
+  const { productInCart } = useCartContext();
 
   return (
     <ListItem>

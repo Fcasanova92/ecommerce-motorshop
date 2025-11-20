@@ -3,12 +3,12 @@ import {  useLocation } from "react-router";
 import moto from "@/assets/img/products/motorcycle.png"; // placeholder
 import { getRandomMillionDecimalFormatted } from "@/components/helpers/getPrice";
 import { MainLayout } from "@/layouts/MainLayout";
-import { useAppContext } from "@/context/AppContext";
+import { useCartContext } from "@/context/CartContext";
 
 export const Product = () => {
   const location = useLocation();
   const product = location.state?.product;
-   const {agregarProducto} = useAppContext();
+   const {agregarProducto} = useCartContext();
 
   if (!product) {
     return <p>Producto no encontrado.</p>;
@@ -17,7 +17,6 @@ export const Product = () => {
   return (
     <MainLayout>
       <div className="product-viewer fx-deep-shadow-dinamyc fx-move-up">
-        {/* Imagen lado izquierdo */}
         <div className="product-image">
           <img
             src={product.image || moto}
@@ -25,8 +24,6 @@ export const Product = () => {
             draggable="false"
           />
         </div>
-
-        {/* Características lado derecho */}
         <div className="product-details">
           <h2 className="title-c">{product.make} {product.model}</h2>
           <ul className="features-list">
@@ -36,8 +33,6 @@ export const Product = () => {
             <li><strong>Descripción:</strong> {product.description}</li>
             <li><strong>Precio:</strong> {getRandomMillionDecimalFormatted()}</li>
           </ul>
-
-          {/* Botón agregar al carrito */}
           <button
             className="add-to-cart"
             onClick={() => agregarProducto(product)}

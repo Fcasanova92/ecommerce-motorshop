@@ -1,11 +1,14 @@
 import { Router } from '@/routes/Router'
-import { AppProvider } from './context/AppContext'
+import { CartProvider } from './context/CartContext'
+import { ToastContainer } from 'react-toastify'
+
 
 function App() {
   return (
-    <AppProvider>
+    <CartProvider>
       <Router />
-    </AppProvider>
+      <ToastContainer />
+    </CartProvider>
   )
 }
 
