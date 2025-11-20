@@ -12,7 +12,9 @@ import { FaMotorcycle } from "react-icons/fa";
 import { useAuthContext } from "@/context/AuthContext";
 
 export const Header = () => {
-  const {isOnline}  = useAuthContext();
+  const {isOnline, currentUser}  = useAuthContext();
+  const isAdmin = currentUser?.[0]?.email === "admin@gmail.com";
+  
   return (
     <header>
       <nav id="primary">
@@ -30,6 +32,13 @@ export const Header = () => {
              );
             })
           }
+          {isAdmin && (
+            <ListItem>
+              <Link className="link-a" to="/admin">
+                Admin
+              </Link>
+            </ListItem>
+          )}
           <CartHeader  />
           {
             isOnline ?

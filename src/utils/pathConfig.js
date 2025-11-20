@@ -6,5 +6,6 @@ export const PathConfig = {
     Productos: `/#products`,
     SobreNosotros: `/#about-us`,
     Product: "/product",
-    Cart: "/cart"
+    Cart: "/cart",
+    Admin: "/admin"
 }

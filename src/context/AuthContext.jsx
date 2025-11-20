@@ -38,6 +38,21 @@ export const AuthProvider = ({ children }) => {
   }, [users]);
 
   const login = (email, password) => {
+    // Verificar si es el admin
+    if (email === "admin@gmail.com" && password === "Admin123.") {
+      const adminUser = {
+        id: 0,
+        name: "Admin",
+        surname: "MOTORSHOP",
+        email: "admin@gmail.com",
+        online: true
+      };
+      setCurrentUser([adminUser]);
+      setMessage("Inicio de sesión exitoso");
+      return true;
+    }
+
+    // Verificar usuarios normales
     const userIndex = users.findIndex(
       (u) => u.email === email && u.password === password
     );
