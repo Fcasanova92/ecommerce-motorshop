@@ -12,9 +12,7 @@ html {
 }
 
 body {
-    width: 96%;
-    margin: 0% auto;
-    background-color: #e4e4e4;
+    background-color: #f8f9fa;
 }
 
 a {
@@ -24,6 +22,8 @@ a {
 ol, ul, li {
     list-style: none;
 }
+
+/* Nota: Los componentes List y ListItem ahora usan styled-components */
 
 fieldset, input, button {
     border: none;
@@ -42,76 +42,9 @@ html {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Títulos */
+/* Títulos movidos a styled-components */
 
-.title-a {
-    color: #2a2a2a;
-    font-size: 2.8rem;
-    font-weight: 300;
-    font-style: italic;
-    letter-spacing: 8px;
-}
-
-.title-b {
-    color: #4b4b4b;
-    font-size: 2rem;
-    font-weight: 500;
-    letter-spacing: 2px;
-}
-
-.title-c {
-    color: #4c4c4c;
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 0.8px;
-}
-
-.title-d {
-    color: #4b4b4b;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-}
-
-.overline {
-    color: #6e6e6e;
-    font-size: 0.56rem;
-    font-weight: 300;
-    letter-spacing: 4px;
-}
-
-.caption {
-    color: #8e8e8e;
-    font-size: 0.66rem;
-    font-weight: 500;
-    letter-spacing: 0.4px;
-}
-
-/* Párrafos */
-
-.body-a {
-    color: #4c4c4c;
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.4rem;
-    letter-spacing: 0.2px;
-}
-
-.body-b {
-    color: #4d4d4d;
-    font-size: 0.86rem;
-    font-weight: 300;
-    line-height: 1.2rem;
-    letter-spacing: 0.4px;
-}
-
-.body-c {
-    color: #8d8d8d;
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 0.86rem;
-    letter-spacing: 0.1px;
-}
+/* Estilos de overline, caption, body-a, body-b, body-c movidos a styled-components */
 
 /* Enlaces, Inputs y Botones */
 
@@ -129,25 +62,9 @@ html {
     letter-spacing: 0.4px;
 }
 
-.like, .see {
-    color: #8d8d8d;
-    font-size: 1rem;
-    letter-spacing: 0.4px;
-    align-self: center;
-}
+/* Estilos de like y see movidos a styled-components */
 
-.price > .title {
-    color: #8d8d8d;
-    font-weight: 700;
-    font-size: 0.86rem;
-    letter-spacing: 0.6px;
-}
-
-.price > .amount {
-    color: #7CB342;
-    font-weight: 300;
-    font-size: 0.76rem;
-}
+/* Estilos de price movidos a styled-components */
 
 input, label, .trigger-a, .trigger-b {
     color: #2e2e2e;
@@ -175,20 +92,7 @@ input, label {
 
 /* <<------------------------------------- Enlaces, Inputs y Botones ------------------------------------->> */
 
-.add-to-cart {
-  background-color: #5e6061;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  font-size: 0.9rem;
-}
-
-.add-to-cart:hover {
-  background-color: #0056b3;
-}
+/* Estilos de add-to-cart movidos a styled-components */
 
 fieldset > legend {
     margin-bottom: 0.6rem;
@@ -322,24 +226,11 @@ input[type="text"]:focus {
     width: 92%;
 }
 
-.like, .see {
-    cursor: pointer;
-    transition: color 600ms;
-}
-
-.like:hover, .like.active {
-    color: #E53935;
-}
-
-.see:hover {
-    color: #3044b5;
-}
+/* Estilos de interacción de like y see movidos a styled-components */
 
 /* <<-------------------------------------------- Formularios -------------------------------------------->> */
 
-form .message {
-    display: none;
-}
+/* Formularios ahora manejados por Bootstrap form-control y form-label */
 
 #filter {
     padding: 0.8rem;
@@ -359,57 +250,13 @@ form .message {
     display: block;
 }
 
-#login, #register {
-    width: 40%;
-    border-radius: 6px;
-    margin: 5rem auto;
-    padding: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    background-color: #fff;
-}
-
-#login > .headline, #register > .headline {
-    margin-bottom: 0px;
-}
-
-#login > .headline > i, #register > .headline > i{
-    color: #6b6b6b;
-}
-
-#login > a, #register > a {
-    text-align: center;
-}
-
-#login > .pass, #register > .pass {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-#login > .pass > input, #register > .pass > input {
-    flex-grow: 1;
-}
-
-#register > #condicion {
-
-    display: flex;
-    flex-flow: row nowrap;
-    column-gap: 1vw;
-}
+/* Login y Register ahora manejados por Bootstrap card y form components */
 
 
 
 /* <<--------------------------------------------- Imagenes ---------------------------------------------->> */
 
-.card-thumbnail {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
+/* card-thumbnail movido a styled-components */
 
 .banner-thumbnail {
     width: 76%;
@@ -419,17 +266,7 @@ form .message {
 
 /* <<-------------------------------------------- Efectos --------------------------------------------->> */
 
-.fx-deep-shadow-static, .fx-deep-shadow-dinamyc {
-    box-shadow: 0px 2px 8px -1px #4a4a4a;
-}
-
-.fx-deep-shadow-dinamyc:hover {
-    box-shadow: 0px 8px 16px -2px #6a6a6a;
-}
-
-.fx-move-up:hover {
-    transform: translateY(-2px);
-}
+/* Estilos de efectos movidos a styled-components */
 
 /* <<------------------------------------------- Mensajes --------------------------------------------->> */
 
@@ -450,15 +287,7 @@ form .message {
 
 /* <<-------------------------------------- Cabeceras de Sección -------------------------------------->> */
 
-.headline {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.4rem;
-    justify-content: space-between;
-    border-bottom: 1px solid #ccc;
-}
+/* Headlines ahora manejadas por Bootstrap utilities (d-flex, justify-content-between, etc) */
 
 /* <<-------------------------------------------- Navegación --------------------------------------------->> */
 
@@ -525,23 +354,7 @@ form .message {
 
 /* <<--------------------------------------------- Grillas ----------------------------------------------->> */
 
-.card-track, #card-wrapper, .location-wrapper {
-    display: grid;
-    gap: 1.3rem;
-    grid-auto-rows: auto;
-}
-
-.card-track {
-    grid-template-columns: repeat(auto-fill,minmax(8rem,1fr));
-}
-
-#card-wrapper {
-    grid-template-columns: repeat(auto-fill,minmax(14rem,1fr));
-}
-
-.location-wrapper {
-    grid-template-columns: repeat(auto-fill,minmax(10rem,1fr));
-}
+/* Grillas ahora manejadas por Bootstrap grid system */
 
 .input-grid {
     display: grid;
@@ -554,156 +367,21 @@ form .message {
 
 /* <<---------------------------------------------- Cartas ----------------------------------------------->> */
 
-.card {
-    overflow: hidden;
-    border-radius: 4px;
-    background-color: #fff;
-    transition: box-shadow ease-in-out 300ms, transform ease-in-out 300ms;
-}
-
-.card.full-view {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.8rem;
-    padding: 0.8rem;
-}
-
-.card.full-view > * {
-    flex: 0 1 calc(50% - 0.8rem);
-}
-
-.card > .supporting-text {
-    display: flex;
-    flex-direction: column;
-    padding: 0.6rem;
-    gap: 0.2rem;
-}
-
-.card > .supporting-text > .caption {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.2rem;
-}
-
-.card > .supporting-text > .footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 0.4rem;
-}
-
-.card > .supporting-text > .footer > .price  {
-    display: flex;
-    gap: 0.2rem;
-    align-items: flex-end;
-}
-
-.card > .supporting-text > .footer > .actions  {
-    display: flex;
-    gap: 0.2rem;
-    justify-content: space-between;
-}
-
-.card.full-view > .supporting-text > .footer {
-    margin-top: auto;
-}
+/* Estilos de cards movidos a styled-components y Bootstrap */
 
 
 /* <<--------------------------------------------- Productos --------------------------------------------->> */
 
-#products {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.8rem;
-}
+/* Estilos de productos ahora manejados por Bootstrap grid y utilities */
 
-#products > .headline {
-    flex: 1 0 100%;
-    margin-bottom: 0px;
-    gap: 0.8rem;
-}
-
-#products > #filter, #products > .headline > h2 {
-    flex: 1 0 calc(26% - 0.4rem);
-}
-
-#products > #filter > .headline > .actions > .trigger-b {
-    display: none;
-}
-
-#products > .headline > .actions {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: end;
-    gap: 0.8rem;
-}
-
-#products > .headline > .actions > li {
-    flex: 1 0 auto;
-}
-
-#products > .headline > .actions > .toggler {
-    display: none;
-}
-
-#products > .headline > .actions > li > button > i {
-    margin-left: 1rem;
-}
-
-#products > #viewer, #products > .headline > .actions {
-    flex: 1 0 calc(74% - 0.4rem);
-}
-
-#products > #viewer > #filter-message {
+#products #filter-message {
     text-align: center;
     margin-bottom: 0.6rem;
 }
 
-
-#products > #viewer > #pages {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 0.8rem;
-}
-
-#products > #viewer > #pages > li{
-    visibility: hidden;
-}
-
 /* <<------------------------------------------ Sobre Nosotros ------------------------------------------->> */
 
-#about-us {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.8rem;
-}
-
-#about-us > .headline{
-    flex: 1 0 100%;
-    margin-bottom: 0px;
-}
-
-#about-us > *:not(.headline) {
-    border-radius: 6px;
-    padding: 0.8rem;
-    background-color: #fff;
-    flex: 1 0 calc(50% - 0.4rem);
-}
-
-#about-us > #contact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-#about-us > .company > p {
-    margin-bottom: 0.8rem;
-}
+/* Estilos de about-us ahora manejados por Bootstrap grid y card */
 
 #about-us .fa-solid {
     color: #4b4b4b;
@@ -712,43 +390,7 @@ form .message {
 
 /* <<-------------------------------------------- Sucursales --------------------------------------------->> */
 
-#branchs {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: start;
-    justify-content: space-between;
-    gap: 0.8rem;
-}
-
-#branchs > .headline{
-    flex: 1 0 100%;
-    margin-bottom: 0px;
-}
-
-#branchs > *:not(.headline) {
-    flex: 1 0 calc(50% - 0.4rem);
-}
-
-#branchs > .info { 
-    padding: 0.8rem;
-    border-radius: 4px;
-    background-color: #fff;
-}
-
-#branchs > .info > .body-b {  
-    line-height: 1.6rem;
-    margin-top: 0.8rem;
-}
-
-#branchs > .location-wrapper > .card > .supporting-text > .title-c {
-    margin-bottom: 0.4rem;
-    border-bottom: 1px solid #ccc;
-}
-
-#branchs > .location-wrapper > .card > .supporting-text > p > i {  
-    color: #4b4b4b;
-    margin-right: 0.4rem;
-}
+/* Estilos de sucursales ahora manejados por Bootstrap grid y styled-components */
 
 
 /* <<--------------------------------------------- Generales --------------------------------------------->> */
@@ -853,69 +495,15 @@ header, section {
 }
 
 
-.skeleton-card {
-  background-color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 1rem;
-}
-
-.skeleton-box {
-  background: linear-gradient(90deg, #e0e0e0 25%, #f3f3f3 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite;
-  border-radius: 8px;
-}
-
-.skeleton-text {
-  height: 16px;
-  margin-bottom: 8px;
-}
-
-.skeleton-text.short {
-  width: 40%;
-}
-
-.skeleton-text.medium {
-  width: 60%;
-}
-
-.skeleton-text.long {
-  width: 90%;
-}
-
-.skeleton-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.skeleton-button {
-  width: 120px;
-  height: 32px;
-  border-radius: 6px;
-}
-
-.skeleton-card .media {
-  width: 100%;
-  height: 160px;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
+/* Estilos de skeleton movidos a styled-components */
 
 /* <<------------------------------------------- Media Queries ------------------------------------------->> */
 
+/* Media queries simplificados - Bootstrap maneja la mayoría de casos responsive */
+
 /* Tablets */
 
-@media (width < 768px) {
+@media (max-width: 768px) {
 
     .banner {
         display: block;
@@ -962,45 +550,7 @@ header, section {
         flex: 1 0 auto;
     }
 
-    #products > #viewer {
-        flex: 1 0 100%;
-    }
-
-    #products > #filter > .headline > .actions > .headline-icon {
-        display: none;
-    }
-
-    #products > #filter > .headline > .actions > .trigger-b {
-        display: block;
-    }
-
-    #products > #filter {
-        width: 100%;
-        position: absolute;
-        top: 0px;
-        left: -100%;
-        z-index: 100;
-        opacity: 0;
-        box-shadow: 0px 8px 16px -1px #2a2a2a;
-        transition: left ease-in-out 300ms, opacity ease-in-out 500ms;
-    }
-
-    #products > #filter.visible {
-        left: 0px;
-        opacity: 1;
-    }
-
-    #products > .headline > .actions > .toggler {
-        display: block;
-    }
-
-    #about-us > #contact, #about-us > .company {
-        flex: 1 0 100%;
-    }
-
-    #branchs > *:not(.headline) {
-        flex: 1 0 100%;
-    }
+    /* Estilos responsive ahora manejados por Bootstrap responsive classes (col-sm, col-md, etc) */
 
     #login, #register {
         width: 80%;
@@ -1021,7 +571,7 @@ header, section {
 
 /* Moviles */
 
-@media (width < 480px) { 
+@media (max-width: 480px) { 
 
     .banner > .supporting-text {
         padding: 1.6rem;
@@ -1043,25 +593,8 @@ header, section {
         font-size: 0.8rem;
     }
 
-    #products > #viewer > #card-wrapper > .card {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    
-    .card.full-view > * {
-        flex: 0 1 100%;
-    }
-
-    #products > #viewer > #card-wrapper > .card > .media {
-        height: 8rem;
-        flex: 1 0 calc(36% - 0.4rem);
-    }
-
-    #products > #viewer > #card-wrapper > .card > .supporting-text {
-        padding: 0.8rem;
-        flex: 1 0 calc(64% - 0.4rem);
-    }
+    /* Nota: Considerar mover estos estilos responsive a styled-components si es necesario */
+    /* Cards responsive manejados por Bootstrap y styled-components */
 
     #login, #register {
         width: 100%;

@@ -77,80 +77,115 @@ export const RegisterForm = () => {
   };
 
   return (
-    <section id="user-session">
-      <form id="register" className="fx-deep-shadow-static" onSubmit={handleSubmit}>
-        <div className="headline">
-          <h2 className="title-c">Registro</h2>
-          <i className="fa-regular fa-address-card"></i>
+    <div className="container py-5">
+      <div className="row justify-content-center">
+        <div className="col-12 col-md-8 col-lg-6">
+          <div className="card shadow">
+            <div className="card-body p-4">
+              <form onSubmit={handleSubmit}>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                  <h2 className="title-c mb-0">Registro</h2>
+                  <i className="fa-regular fa-address-card fs-4 text-secondary"></i>
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="name" className="form-label">Nombre</label>
+                    <input
+                      id="name"
+                      type="text"
+                      className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                      placeholder="Nombre..."
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                    {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                  </div>
+
+                  <div className="col-md-6 mb-3">
+                    <label htmlFor="surname" className="form-label">Apellido</label>
+                    <input
+                      id="surname"
+                      type="text"
+                      className={`form-control ${errors.surname ? 'is-invalid' : ''}`}
+                      placeholder="Apellido..."
+                      value={formData.surname}
+                      onChange={handleChange}
+                    />
+                    {errors.surname && <div className="invalid-feedback">{errors.surname}</div>}
+                  </div>
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">Email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                    placeholder="Email..."
+                    value={formData.email}
+                    onChange={handleChange}
+                  />
+                  {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                </div>
+
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">Contraseña</label>
+                  <div className="input-group">
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      className={`form-control ${errors.password ? 'is-invalid' : ''}`}
+                      placeholder="Password"
+                      value={formData.password}
+                      onChange={handleChange}
+                    />
+                    <button
+                      className="btn btn-outline-secondary"
+                      type="button"
+                      onClick={() => togglePasswordVisibility(setShowPassword)}
+                    >
+                      <i className={`fa-regular ${showPassword ? "fa-eye" : "fa-eye-slash"}`}></i>
+                    </button>
+                    {errors.password && <div className="invalid-feedback">{errors.password}</div>}
+                  </div>
+                </div>
+
+                <div className="form-check mb-3">
+                  <input
+                    id="condition"
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={formData.condition}
+                    onChange={(e) =>
+                      setFormData((prev) => ({ ...prev, condition: e.target.checked }))
+                    }
+                  />
+                  <label className="form-check-label" htmlFor="condition">
+                    Acepto términos y condiciones
+                  </label>
+                </div>
+
+                <button className="btn btn-primary w-100 mb-3" type="submit">
+                  Registrarse
+                </button>
+
+                <div className="text-center">
+                  <Link className="text-decoration-none" to={PathConfig.Login}>
+                    ¿Tienes cuenta? Inicia sesión aquí
+                  </Link>
+                </div>
+
+                {message && (
+                  <div className={`alert ${message.includes('exitoso') ? 'alert-success' : 'alert-danger'} mt-3 mb-0`} role="alert">
+                    {message}
+                  </div>
+                )}
+              </form>
+            </div>
+          </div>
         </div>
-
-        <input
-          id="name"
-          type="text"
-          placeholder="Nombre..."
-          value={formData.name}
-          onChange={handleChange}
-        />
-        {errors.name && <span className="messageFormError" color="red">{errors.name}</span>}
-
-        <input
-          id="surname"
-          type="text"
-          placeholder="Apellido..."
-          value={formData.surname}
-          onChange={handleChange}
-        />
-        {errors.surname && <span className="messageFormError" color="red">{errors.surname}</span>}
-
-        <input
-          id="email"
-          type="text"
-          placeholder="Email..."
-          value={formData.email}
-          onChange={handleChange}
-        />
-        {errors.email && <span className="messageFormError" color="red">{errors.email}</span>}
-
-        <div className="pass">
-          <input
-            id="password"
-            type={showPassword ? "text" : "password"}
-            placeholder="Password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-          <i
-            id="eye"
-            className={`fa-regular ${showPassword ? "fa-eye" : "fa-eye-slash"} trigger-b`}
-            onClick={() => togglePasswordVisibility(setShowPassword)}
-          ></i>
-        </div>
-        {errors.password && <span className="messageFormError" color="red">{errors.password}</span>}
-
-        <div className="checkbox-field">
-          <input
-            id="condition"
-            type="checkbox"
-            checked={formData.condition}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, condition: e.target.checked }))
-            }
-          />
-          <label className="with-check-icon" htmlFor="condition">
-            Acepto términos y condiciones
-          </label>
-        </div>
-
-        <button id="send" className="trigger-a" type="submit">
-          Enviar
-        </button>
-
-        {message && <span className="messageFormError" color="red">{message}</span>}
-
-        <Link className={"link-c"} to={PathConfig.Login}>
-          ¿Tienes cuenta? Inicia sesión aquí
-        </Link>
-      </form>
-    </section>
+      </div>
+    </div>
   );
 };
